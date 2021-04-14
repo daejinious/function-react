@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { Component } from 'react'
+import './App.css'
 
 function FuncComp({ initNumber }) {
   return (
@@ -9,11 +10,29 @@ function FuncComp({ initNumber }) {
   )
 }
 
-class ClassComp extends React.Component {
+class ClassComp extends Component {
+  constructor(props) {
+    super(props)
+    const { initNumber } = this.props
+    this.state = {
+      number: initNumber,
+    }
+  }
+
   render() {
+    const { number } = this.state
     return (
       <div className="container">
         <h2>class style Component</h2>
+        <p>Number: {number}</p>
+        <input
+          type="button"
+          value="random"
+          onClick={function anonymous(e) {
+            e.preventDefault()
+            this.setState({ number: Math.random() })
+          }.bind(this)}
+        />
       </div>
     )
   }
