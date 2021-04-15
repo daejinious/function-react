@@ -3,8 +3,8 @@ import './App.css'
 
 function FuncComp({ initNumber }) {
   const numberState = useState(initNumber)
-  const number = numberState[0]
-  const setNumber = numberState[1]
+  const [number, setNumber] = numberState
+
   return (
     <div className="container">
       <h2>Function style Component</h2>
