@@ -1,11 +1,21 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import './App.css'
 
 function FuncComp({ initNumber }) {
+  const numberState = useState(initNumber)
+  const number = numberState[0]
+  const setNumber = numberState[1]
   return (
     <div className="container">
       <h2>Function style Component</h2>
-      <p>Number: {initNumber}</p>
+      <p>Number: {number}</p>
+      <input
+        type="button"
+        value="random"
+        onClick={function anonymous() {
+          setNumber(Math.random())
+        }}
+      />
     </div>
   )
 }
