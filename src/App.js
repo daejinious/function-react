@@ -1,9 +1,20 @@
-import React, { Component, useState } from 'react'
+import React, { Component, useState, useEffect } from 'react'
 import './App.css'
+
+const funcStyle = 'color:blue'
+let funcId = 0
 
 function FuncComp({ initNumber }) {
   const numberState = useState(initNumber)
   const [number, setNumber] = numberState
+
+  // eslint-disable-next-line no-plusplus
+
+  useEffect(() => {
+    funcId += 1
+    window.console.log(`%cfunc => render ${funcId}`, funcStyle)
+    document.title = `${number} : ${funcId}`
+  })
 
   return (
     <div className="container">
