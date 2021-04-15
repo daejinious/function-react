@@ -29,7 +29,17 @@ class ClassComp extends Component {
     }
   }
 
+  // eslint-disable-next-line react/no-deprecated
+  componentWillMount() {
+    window.console.log('class => success')
+  }
+
+  componentDidMount() {
+    window.console.log('class => ComponentDidMount')
+  }
+
   render() {
+    window.console.log('class => render()')
     const { number } = this.state
     return (
       <div className="container">
