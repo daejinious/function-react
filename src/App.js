@@ -12,10 +12,16 @@ function FuncComp({ initNumber }) {
 
   useEffect(() => {
     funcId += 1
-    window.console.log(`%cfunc => render ${funcId}`, funcStyle)
+    window.console.log(`%cfunc => useEffect ${funcId}`, funcStyle)
     document.title = `${number} : ${funcId}`
+
+    // unmount 되는 시점을 나타냄
+    return () => {
+      window.console.log(`%cfunc => clean-up ${funcId}`, funcStyle)
+    }
   })
 
+  window.console.log(`%cfunc => render ${funcId}`, funcStyle)
   return (
     <div className="container">
       <h2>Function style Component</h2>
