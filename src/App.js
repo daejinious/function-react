@@ -19,7 +19,7 @@ function FuncComp({ initNumber }) {
     return () => {
       window.console.log(`%cfunc => clean-up ${funcId}`, funcStyle)
     }
-  })
+  }, [number])
 
   window.console.log(`%cfunc => render ${funcId}`, funcStyle)
   return (
